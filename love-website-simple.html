@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>За теб ♥</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Jost:wght@200;300&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: #fdf4f6;
+  color: #2a1a1e;
+  min-height: 100vh;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  background: linear-gradient(170deg, #fdf4f6 0%, #f7e8ec 60%, #faf0e8 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.petals-bg {
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ctext x='40' y='50' text-anchor='middle' font-size='14' fill='%23c4687a' opacity='0.07'%3E♥%3C/text%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+
+/* ── СНИМКА ── */
+.photo-frame {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #fff;
+  box-shadow: 0 8px 40px rgba(196,104,122,0.25);
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1s ease both;
+}
+
+/* 🖊️ СМЕНИ src с твоята снимка */
+.photo-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #f0dde2, #fdf4f6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #c4687a;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.photo-placeholder span:first-child { font-size: 2.5rem; opacity: 0.4; }
+
+.hero-heart {
+  font-size: 1.6rem;
+  color: #c4687a;
+  margin-bottom: 1rem;
+  animation: heartbeat 2s ease-in-out infinite, fadeIn 1s 0.2s ease both;
+  opacity: 0;
+  position: relative; z-index: 1;
+}
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.2); }
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(3rem, 10vw, 6rem);
+  color: #2a1a1e;
+  line-height: 1;
+  animation: fadeIn 1s 0.3s ease both;
+  opacity: 0;
+  position: relative; z-index: 1;
+}
+
+.hero-sub {
+  font-weight: 200;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #c4687a;
+  margin-top: 0.8rem;
+  animation: fadeIn 1s 0.5s ease both;
+  opacity: 0;
+  position: relative; z-index: 1;
+}
+
+/* ─── CARDS ─── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background: #f0d8de;
+}
+
+.card {
+  background: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.card-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #c4687a;
+  margin-bottom: 0.8rem;
+}
+
+.card-text {
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #6b4050;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* ─── QUOTE ─── */
+.quote {
+  background: #2a1a1e;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  color: #fff;
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+.quote-hearts {
+  color: #c4687a;
+  font-size: 1.2rem;
+  letter-spacing: 0.4rem;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: #fdf4f6;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #a07080;
+  font-weight: 200;
+  letter-spacing: 0.15em;
+}
+footer strong { color: #c4687a; font-weight: 400; }
+
+/* ─── АНИМАЦИИ ─── */
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.card.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="petals-bg"></div>
+
+  <!-- 🖊️ Замени src="СНИМКА.jpg" с пътя до твоята снимка -->
+  <div class="photo-frame">
+    <img src="pic.jpg" alt="снимка" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <div class="photo-placeholder" style="display:none">
+      <span>📷</span>
+      <span>Твоята снимка</span>
+    </div>
+  </div>
+
+  <div class="hero-heart">♥</div>
+  <h1 class="hero-name">Обичам те</h1>
+  <p class="hero-sub">завинаги и за вечни времена</p>
+</section>
+
+<!-- КАРТИ -->
+<div class="cards">
+
+  <div class="card">
+    <span class="card-icon">🌸</span>
+    <h2 class="card-title">Твоята усмивка</h2>
+    <p class="card-text">Когато се усмихваш, целият свят изглежда по-светъл. Никой не се усмихва като теб.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-icon">💫</span>
+    <h2 class="card-title">Твоята доброта</h2>
+    <p class="card-text">Грижиш се за всички около теб с такава нежност — обичам те за всяко добро нещо, което правиш.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-icon">🌙</span>
+    <h2 class="card-title">Ти ме разбираш</h2>
+    <p class="card-text">Дори без думи знаеш как се чувствам. Това е нещо, което намирам само при теб.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-icon">🔥</span>
+    <h2 class="card-title">Нашите смехове</h2>
+    <p class="card-text">Всеки обикновен ден се превръща в спомен, когато сме заедно. Обичам те и за това.</p>
+  </div>
+
+</div>
+
+<!-- ЦИТАТ -->
+<section class="quote">
+  <p class="quote-text">„В целия свят има само едно нещо по-красиво от теб — твоята душа."</p>
+  <p class="quote-hearts">♥ ♥ ♥</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Направено с <strong>♥</strong> специално за теб
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.card').forEach(c => observer.observe(c));
+</script>
+
+</body>
+</html>
